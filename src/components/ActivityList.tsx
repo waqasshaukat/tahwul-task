@@ -1,14 +1,13 @@
 type Activity = {
   title: string;
-  by: string;
   time: string;
   type: "doc" | "task" | "alert";
 };
 
 const badgeMap = {
-  doc: "bg-brand-500",
-  task: "bg-amber-500",
-  alert: "bg-rose-500",
+  doc: "bg-[#DB1F26]",
+  task: "bg-[#DB1F26]",
+  alert: "bg-[#DB1F26]",
 };
 
 type Props = {
@@ -18,19 +17,22 @@ type Props = {
 
 export default function ActivityList({ title, items }: Props) {
   return (
-    <div className="card p-4">
-      <h3 className="text-sm font-semibold text-ink-800">{title}</h3>
-      <div className="mt-4 space-y-4">
+    <div className="h-[283.45px] w-full rounded-[10px] border border-[#E0E8ED] bg-white p-4">
+      <h3 className="text-[16px] font-bold leading-4 text-[#1D3557]">
+        {title}
+      </h3>
+      <div className="mt-3 border-t border-[#E0E8ED] divide-y divide-[#E0E8ED]">
         {items.map((item) => (
-          <div key={item.title} className="flex items-start gap-3 text-sm">
-            <span className={`mt-1 h-2 w-2 rounded-full ${badgeMap[item.type]}`} />
+          <div key={item.title} className="flex items-start gap-3 py-3 text-sm">
+            <span className={`mt-1 h-1.5 w-1.5 rounded-full ${badgeMap[item.type]}`} />
             <div className="flex-1">
-              <p className="text-ink-900">{item.title}</p>
-              <p className="text-xs text-slateblue-500">
-                By {item.by}
+              <p className="text-[16px] font-medium leading-[22px] text-[#1D3557]">
+                {item.title}
               </p>
             </div>
-            <span className="text-xs text-slateblue-400">{item.time}</span>
+            <span className="text-[12px] font-normal leading-4 text-[#8597A8]">
+              {item.time}
+            </span>
           </div>
         ))}
       </div>

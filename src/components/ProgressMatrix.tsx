@@ -21,13 +21,20 @@ type Props = {
 const statuses = ["Not Started", "In Progress", "Completed", "Partially Uploaded", "Fully Uploaded", "Delayed"];
 
 const statusDotColors = [
-  "bg-[#8597A8]",
-  "bg-amber-500",
-  "bg-[#1EA54E]",
-  "bg-brand-500",
-  "bg-emerald-600",
-  "bg-rose-500",
+  "bg-[#8597A8]", // Not Started
+  "bg-[#F59F0A]", // In Progress
+  "bg-[#1EA54E]", // Completed
+  "bg-[#0078D7]", // Partially Uploaded
+  "bg-[#0078D7]", // Fully Uploaded
+  "bg-[#F50A0A]", // Delayed
 ];
+
+const getBallColumns = (count: number) => {
+  if (count <= 2) return count;
+  if (count === 3) return 3;
+  if (count === 4) return 2;
+  return 3;
+};
 
 export default function ProgressMatrix({ columns }: Props) {
   return (
@@ -63,20 +70,29 @@ export default function ProgressMatrix({ columns }: Props) {
               {column.segments.map((segment) => (
                 <div
                   key={`${column.title}-${segment.title}`}
-                  className="flex flex-1 flex-col justify-between rounded-[10px] border border-[#E0E8ED] bg-[#F5F8FB] p-2"
+                  className="flex flex-1 flex-col rounded-[10px] border border-[#E0E8ED] bg-[#F5F8FB] p-2"
                 >
                   <p className="text-center text-[10px] font-normal leading-4 text-[#1D3557]">
                     {segment.title}
                   </p>
-                  <div className="mt-2 grid grid-cols-3 gap-[10px]">
-                    {segment.items.map((item) => (
-                      <span
-                        key={`${segment.title}-${item.label}`}
-                        className={`flex h-6 w-6 items-center justify-center rounded-full text-[9px] font-semibold text-white ${statusDotColors[item.status]}`}
-                      >
-                        {item.label}
-                      </span>
-                    ))}
+                  <div className="flex flex-1 items-center justify-center">
+                    <div
+                      className="grid justify-center gap-[10px]"
+                      style={{
+                        gridTemplateColumns: `repeat(${getBallColumns(
+                          segment.items.length
+                        )}, 24px)`,
+                      }}
+                    >
+                      {segment.items.map((item) => (
+                        <span
+                          key={`${segment.title}-${item.label}`}
+                          className={`flex h-6 w-6 items-center justify-center rounded-full text-[9px] font-semibold text-white ${statusDotColors[item.status]}`}
+                        >
+                          {item.label}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ))}

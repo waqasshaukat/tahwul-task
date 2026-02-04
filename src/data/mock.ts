@@ -296,27 +296,39 @@ export const progressColumns = [
 ];
 
 export const leaders = [
-  { name: "Ahmed Al-Ali", role: "Strategy Perspective", score: "96%" },
-  { name: "Sarah Al-Khaled", role: "Beneficiary Perspective", score: "94%" },
-  { name: "Mohammad Al-Mansour", role: "IT Perspective", score: "92%" },
+  {
+    name: "Ahmed Al-Ali",
+    role: "Strategy Perspective",
+    score: "96%",
+    avatar: "/icons/ahmad.png",
+  },
+  {
+    name: "Sarah Al-Khaled",
+    role: "Beneficiary Perspective",
+    score: "94%",
+    avatar: "/icons/sarah.png",
+  },
+  {
+    name: "Mohammad Al-Mansour",
+    role: "IT Perspective",
+    score: "92%",
+    avatar: "/icons/mohammad.png",
+  },
 ];
 
 export const activities = [
   {
-    title: "Document “Strategy_Review.pdf” was uploaded",
-    by: "Ahmed Khaled",
+    title: "Document “Strategy_Review.pdf” Was Uploaded By Ahmed Khaled",
     time: "5 mins ago",
     type: "doc",
   },
   {
-    title: "Task “Review Compliance Files” was assigned",
-    by: "Mona Hamed",
+    title: "Task “Review Compliance Files” Was Assigned To Mona Hamed",
     time: "20 mins ago",
     type: "task",
   },
   {
-    title: "New Criterion “5.3 Digital Identity” was created",
-    by: "Admin",
+    title: "New Criterion “5.3 Digital Identity” Was Created By Admin",
     time: "1 hour ago",
     type: "alert",
   },
