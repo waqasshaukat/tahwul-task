@@ -22,31 +22,59 @@ export default function Timeline({ items }: Props) {
       </div>
       <div className="mt-4">
         <div className="relative h-[14px] w-full rounded-[10px] bg-[#F5F8FB]">
-          <div className="h-[14px] w-1/3 rounded-[10px] bg-emerald-500" />
+          <div className="absolute left-0 top-0 h-[14px] w-[307px] rounded-[10px] bg-[#1EA54E]" />
           {items.map((item, index) => {
-            const position = (index / (items.length - 1)) * 100;
+            const leftPadding = 47;
+            const rightPadding = 46.97;
+            const spacing = `calc((100% - ${leftPadding}px - ${rightPadding}px) / ${items.length - 1})`;
+            const leftOffset =
+              index === items.length - 1
+                ? `calc(100% - ${rightPadding}px)`
+                : `calc(${leftPadding}px + ${index} * ${spacing})`;
             return (
               <span
                 key={item.label}
-                className={`absolute top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full ${
+                className={`absolute top-1/2 h-[10px] w-[10px] -translate-x-1/2 -translate-y-1/2 rounded-full ${
                   item.status === "done"
-                    ? "bg-emerald-500"
-                    : item.status === "next"
-                    ? "bg-amber-500"
-                    : "bg-slateblue-300"
+                    ? "bg-white"
+                    : "bg-[#DB1F26]"
                 }`}
-                style={{ left: `${position}%` }}
+                style={{ left: leftOffset }}
               />
             );
           })}
         </div>
-        <div className="mt-3 grid grid-cols-2 gap-4 text-xs text-slateblue-600 md:grid-cols-6">
-          {items.map((item) => (
-            <div key={item.label} className="flex flex-col gap-1">
-              <span className="font-semibold text-ink-800">{item.date}</span>
-              <span>{item.label}</span>
-            </div>
-          ))}
+        <div className="relative mt-4 h-[44px]">
+          {items.map((item, index) => {
+            const leftPadding = 47;
+            const rightPadding = 46.97;
+            const spacing = `calc((100% - ${leftPadding}px - ${rightPadding}px) / ${items.length - 1})`;
+            const leftOffset =
+              index === items.length - 1
+                ? `calc(100% - ${rightPadding}px)`
+                : `calc(${leftPadding}px + ${index} * ${spacing})`;
+            const isLast = index === items.length - 1;
+            return (
+              <div
+                key={item.label}
+                className="absolute top-0 -translate-x-1/2 text-center"
+                style={{
+                  left: isLast ? `calc(${leftOffset} - 6px)` : leftOffset,
+                }}
+              >
+                <span className="block text-[14px] font-normal leading-4 text-[#8597A8]">
+                  {item.date}
+                </span>
+                <span
+                  className={`mt-[6px] block text-[14px] font-medium leading-4 text-[#1D3557] ${
+                    isLast ? "whitespace-nowrap" : ""
+                  }`}
+                >
+                  {item.label}
+                </span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
