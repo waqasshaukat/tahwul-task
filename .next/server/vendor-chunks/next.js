@@ -427,6 +427,16 @@ eval("\nObject.defineProperty(exports, \"__esModule\", ({\n    value: true\n}));
 
 /***/ }),
 
+/***/ "(rsc)/./node_modules/next/font/google/target.css?{\"path\":\"src/app/layout.tsx\",\"import\":\"Cairo\",\"arguments\":[{\"subsets\":[\"latin\"],\"variable\":\"--font-cairo\"}],\"variableName\":\"cairo\"}":
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/font/google/target.css?{"path":"src/app/layout.tsx","import":"Cairo","arguments":[{"subsets":["latin"],"variable":"--font-cairo"}],"variableName":"cairo"} ***!
+  \**************************************************************************************************************************************************************************************/
+/***/ ((module) => {
+
+eval("// Exports\nmodule.exports = {\n\t\"style\": {\"fontFamily\":\"'Cairo', 'Cairo Fallback'\",\"fontStyle\":\"normal\"},\n\t\"className\": \"__className_6b0efd\",\n\t\"variable\": \"__variable_6b0efd\"\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9ub2RlX21vZHVsZXMvbmV4dC9mb250L2dvb2dsZS90YXJnZXQuY3NzP3tcInBhdGhcIjpcInNyYy9hcHAvbGF5b3V0LnRzeFwiLFwiaW1wb3J0XCI6XCJDYWlyb1wiLFwiYXJndW1lbnRzXCI6W3tcInN1YnNldHNcIjpbXCJsYXRpblwiXSxcInZhcmlhYmxlXCI6XCItLWZvbnQtY2Fpcm9cIn1dLFwidmFyaWFibGVOYW1lXCI6XCJjYWlyb1wifSIsIm1hcHBpbmdzIjoiQUFBQTtBQUNBO0FBQ0EsV0FBVyw4REFBOEQ7QUFDekU7QUFDQTtBQUNBIiwic291cmNlcyI6WyIvaG9tZS93YXFhc19zaGF1a2F0L3Byb2plY3RzL3BlcnNvbmFsL3RhaGF3dWwtdGFzay9ub2RlX21vZHVsZXMvbmV4dC9mb250L2dvb2dsZS90YXJnZXQuY3NzP3tcInBhdGhcIjpcInNyYy9hcHAvbGF5b3V0LnRzeFwiLFwiaW1wb3J0XCI6XCJDYWlyb1wiLFwiYXJndW1lbnRzXCI6W3tcInN1YnNldHNcIjpbXCJsYXRpblwiXSxcInZhcmlhYmxlXCI6XCItLWZvbnQtY2Fpcm9cIn1dLFwidmFyaWFibGVOYW1lXCI6XCJjYWlyb1wifSJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBFeHBvcnRzXG5tb2R1bGUuZXhwb3J0cyA9IHtcblx0XCJzdHlsZVwiOiB7XCJmb250RmFtaWx5XCI6XCInQ2Fpcm8nLCAnQ2Fpcm8gRmFsbGJhY2snXCIsXCJmb250U3R5bGVcIjpcIm5vcm1hbFwifSxcblx0XCJjbGFzc05hbWVcIjogXCJfX2NsYXNzTmFtZV82YjBlZmRcIixcblx0XCJ2YXJpYWJsZVwiOiBcIl9fdmFyaWFibGVfNmIwZWZkXCJcbn07XG4iXSwibmFtZXMiOltdLCJpZ25vcmVMaXN0IjpbMF0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(rsc)/./node_modules/next/font/google/target.css?{\"path\":\"src/app/layout.tsx\",\"import\":\"Cairo\",\"arguments\":[{\"subsets\":[\"latin\"],\"variable\":\"--font-cairo\"}],\"variableName\":\"cairo\"}\n");
+
+/***/ }),
+
 /***/ "(rsc)/./node_modules/next/font/google/target.css?{\"path\":\"src/app/layout.tsx\",\"import\":\"Manrope\",\"arguments\":[{\"subsets\":[\"latin\"],\"variable\":\"--font-manrope\"}],\"variableName\":\"manrope\"}":
 /*!********************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/next/font/google/target.css?{"path":"src/app/layout.tsx","import":"Manrope","arguments":[{"subsets":["latin"],"variable":"--font-manrope"}],"variableName":"manrope"} ***!

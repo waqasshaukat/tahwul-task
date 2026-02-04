@@ -6,32 +6,72 @@ type Props = {
 };
 
 export default function GaugeCard({ title, value, subtitle, meta }: Props) {
+  const size = 258.09;
+  const stroke = 16;
+  const radius = (size - stroke) / 2;
+  const arcLength = Math.PI * radius;
+  const progress = (value / 100) * arcLength;
+  const offset = arcLength - progress;
+
   return (
-    <div className="card p-4">
-      <h3 className="text-sm font-semibold text-ink-800">{title}</h3>
-      <div className="mt-4 flex flex-col items-center gap-3">
-        <div
-          className="flex h-28 w-28 items-center justify-center rounded-full"
-          style={{
-            background: `conic-gradient(#18B76A ${value * 3.6}deg, #E3E9F4 0deg)`,
-          }}
-        >
-          <div className="flex h-20 w-20 flex-col items-center justify-center rounded-full bg-white shadow-subtle">
-            <span className="text-2xl font-semibold text-ink-900">{value}%</span>
-            <span className="text-[10px] text-slateblue-500">{subtitle}</span>
+    <div className="h-[322.09px] w-full rounded-[10px] border border-[#E0E8ED] bg-white p-4">
+      <h3 className="text-[16px] font-bold leading-4 text-[#1D3557]">
+        {title}
+      </h3>
+      <div className="mt-2 flex flex-1 items-center justify-center">
+        <div className="relative h-[170px] w-[258.09px] -translate-y-4">
+          <svg
+            className="absolute bottom-0 left-0"
+            width={size}
+            height={size / 2 + stroke / 2}
+            viewBox={`0 0 ${size} ${size / 2 + stroke / 2}`}
+            fill="none"
+          >
+            <path
+              d={`M${stroke / 2} ${size / 2} A${radius} ${radius} 0 0 1 ${
+                size - stroke / 2
+              } ${size / 2}`}
+              stroke="#F5F8FB"
+              strokeWidth={stroke}
+              strokeLinecap="round"
+            />
+            <path
+              d={`M${stroke / 2} ${size / 2} A${radius} ${radius} 0 0 1 ${
+                size - stroke / 2
+              } ${size / 2}`}
+              stroke="#1EA54E"
+              strokeWidth={stroke}
+              strokeLinecap="round"
+              strokeDasharray={arcLength}
+              strokeDashoffset={offset}
+            />
+          </svg>
+          <div className="absolute bottom-2 left-1/2 w-full -translate-x-1/2 text-center">
+            <p className="font-cairo text-[44px] font-bold leading-[44px] text-[#1D3557]">
+              {value}%
+            </p>
+            <p className="mt-5 text-[14px] font-normal leading-4 text-[#8597A8]">
+              {subtitle}
+            </p>
           </div>
         </div>
-        {meta && (
-          <div className="grid w-full grid-cols-2 gap-3 text-center text-xs">
+      </div>
+      {meta && (
+        <div className="mt-auto border-t border-[#E0E8ED] pt-[32.76px] pb-[24.84px]">
+          <div className="grid grid-cols-2 text-center">
             {meta.map((item) => (
-              <div key={item.label}>
-                <p className="text-ink-900 font-semibold">{item.value}</p>
-                <p className="text-slateblue-500">{item.label}</p>
+              <div key={item.label} className="flex flex-col items-center">
+                <p className="text-[24px] font-bold leading-4 text-[#1D3557]">
+                  {item.value}
+                </p>
+                <p className="mt-[10.98px] text-[14px] font-normal leading-4 text-[#8597A8]">
+                  {item.label}
+                </p>
               </div>
             ))}
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }

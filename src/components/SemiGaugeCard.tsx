@@ -12,7 +12,7 @@ export default function SemiGaugeCard({
   color = "#DB1F26",
 }: Props) {
   const size = 258.09;
-  const stroke = 20;
+  const stroke = 16;
   const radius = (size - stroke) / 2;
   const arcLength = Math.PI * radius;
   const progress = (value / 100) * arcLength;
@@ -52,10 +52,10 @@ export default function SemiGaugeCard({
             />
           </svg>
           <div className="absolute bottom-2 left-1/2 w-full -translate-x-1/2 text-center">
-            <p className="text-[44px] font-bold leading-[44px] text-[#1D3557]">
+            <p className="font-cairo text-[44px] font-bold leading-[44px] text-[#1D3557]">
               {value}%
             </p>
-            <p className="mt-1 text-[14px] font-normal leading-4 text-[#8597A8]">
+            <p className="mt-5 text-[14px] font-normal leading-4 text-[#8597A8]">
               {subtitle}
             </p>
           </div>

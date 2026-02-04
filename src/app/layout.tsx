@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Manrope, Sora } from "next/font/google";
+import { Manrope, Sora, Cairo } from "next/font/google";
 import AppShell from "@/components/AppShell";
 
 const manrope = Manrope({
@@ -11,6 +11,11 @@ const manrope = Manrope({
 const sora = Sora({
   subsets: ["latin"],
   variable: "--font-sora",
+});
+
+const cairo = Cairo({
+  subsets: ["latin"],
+  variable: "--font-cairo",
 });
 
 export const metadata: Metadata = {
@@ -24,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${manrope.variable} ${sora.variable}`}>
+    <html lang="en" className={`${manrope.variable} ${sora.variable} ${cairo.variable}`}>
       <body>
         <AppShell>{children}</AppShell>
       </body>

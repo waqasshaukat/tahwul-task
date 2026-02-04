@@ -7,6 +7,7 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-manrope)", "ui-sans-serif", "system-ui"],
         display: ["var(--font-sora)", "var(--font-manrope)", "ui-sans-serif"],
+        cairo: ["var(--font-cairo)", "var(--font-manrope)", "ui-sans-serif"],
       },
       colors: {
         ink: {
