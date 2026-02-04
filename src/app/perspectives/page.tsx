@@ -7,19 +7,21 @@ import { evidenceSummary, objectiveSections } from "@/data/mock";
 export default function PerspectivesOverviewPage() {
   return (
     <div className="space-y-6">
-      <div className="flex items-center gap-2 text-xs text-slateblue-500">
-        <span className="rounded-full bg-slateblue-100 px-2 py-1 font-semibold text-ink-800">
-          ←
+      <div className="flex items-center gap-2">
+        <img src="/icons/left_arrow.svg" alt="" className="h-4 w-4" />
+        <span className="text-[16px] font-bold leading-4 text-[#1D3557]">
+          Digital Transformation Strategic Planning
         </span>
-        Digital Transformation Strategic Planning
       </div>
 
-      <DetailHeader
-        title="Digital Transformation Strategic Planning"
-        subtitle="Develop comprehensive strategic plans for digital transformation aligned with organizational goals"
-        category="Strategy & Planning"
-        progress={100}
-      />
+      <div className="mt-[75px]">
+        <DetailHeader
+          title="Digital Transformation Strategic Planning"
+          subtitle="Develop comprehensive strategic plans for digital transformation aligned with organizational goals"
+          category="Strategy & Planning"
+          progress={100}
+        />
+      </div>
 
       <div className="grid gap-4 md:grid-cols-4">
         {evidenceSummary.map((item) => (
@@ -34,39 +36,88 @@ export default function PerspectivesOverviewPage() {
         ]}
       />
 
-      <div className="grid gap-4 lg:grid-cols-[220px_1fr]">
-        <div className="card p-3">
-          <nav className="space-y-2 text-xs">
-            {objectiveSections.map((section, index) => (
-              <button
-                key={section.title}
-                className={`w-full rounded-xl px-3 py-2 text-left font-semibold ${
-                  index === 0
-                    ? "bg-slateblue-100 text-ink-900"
-                    : "text-slateblue-500 hover:bg-slateblue-50"
+      <div className="relative mt-[18.9px] rounded-[10px] border border-[#E0E8ED] bg-white pt-[18.9px] pb-[19.92px]">
+        <div className="absolute bottom-0 top-0 left-[180px] w-px bg-[#E0E8ED]" />
+        <div className="flex flex-col">
+          {objectiveSections.map((section, index) => {
+            const rowGap =
+              index === 0
+                ? 16.43
+                : index === 1
+                ? 16.41
+                : index === 2
+                ? 16.42
+                : index === 3
+                ? 12.48
+                : 0;
+            return (
+            <div key={section.title} className="grid grid-cols-[180px_1fr]" style={{ marginBottom: rowGap }}>
+              <div
+                className={`flex h-full px-3 pl-[24.87px] ${
+                  index === 4 ? "items-center" : "items-start"
                 }`}
               >
-                {section.title}
-              </button>
-            ))}
-          </nav>
-        </div>
-        <div className="space-y-3">
-          {objectiveSections.map((section) => (
-            <div key={section.title} className="card px-4 py-3">
-              <h3 className="text-sm font-semibold text-ink-900">{section.title}</h3>
-              <p className="mt-2 text-xs text-slateblue-600">{section.content}</p>
+                <div
+                  className={`w-[148.42px] rounded-[10px] px-3 py-3 text-left font-cairo text-[16px] font-normal leading-4 text-[#1D3557] ${
+                    index === 0
+                      ? "bg-[#1D3557]/5"
+                      : "bg-[#1D3557]/5 hover:bg-[#1D3557]/10"
+                  } ${index === 4 || index === 3 ? "flex items-center" : ""}`}
+                  style={
+                    index === 1
+                      ? { height: 181.69 }
+                      : index === 2
+                      ? { height: 71.95 }
+                      : index === 3
+                      ? { height: 71.95 }
+                      : index === 4
+                      ? { height: 71.95 }
+                      : undefined
+                  }
+                >
+                  {section.title}
+                </div>
+              </div>
+              <div
+                className={`flex px-3 pr-[26.78px] ${
+                  index === 4 ? "items-center" : "items-center"
+                }`}
+              >
+                <div
+                  className={`ml-0 w-full rounded-[10px] bg-[#F5F8FA] px-4 ${
+                    index === 4 || index === 3 ? "py-0 flex items-center" : "py-2"
+                  }`}
+                  style={
+                    index === 1
+                      ? { minHeight: 181.69 }
+                      : index === 2
+                      ? { minHeight: 71.95 }
+                      : index === 3
+                      ? { minHeight: 71.95 }
+                      : index === 4
+                      ? { minHeight: 71.95 }
+                      : { minHeight: 40 }
+                  }
+                >
+                  <p className="whitespace-pre-line text-[16px] font-normal leading-[24px] text-[#1D3557]">
+                    {section.content}
+                  </p>
+                </div>
+              </div>
             </div>
-          ))}
+          );
+          })}
         </div>
       </div>
 
-      <LeadersRow
-        leaders={[
-          { name: "Ahmed Al-Ali", role: "Strategy Perspective" },
-          { name: "Ahmed Al-Ali", role: "Strategy Perspective" },
-        ]}
-      />
+      <div className="mt-[16.5px]">
+        <LeadersRow
+          leaders={[
+            { name: "Ahmed Al-Ali", role: "Strategy Perspective", avatar: "/icons/ahmad.png" },
+            { name: "Ahmed Al-Ali", role: "Strategy Perspective", avatar: "/icons/ahmad.png" },
+          ]}
+        />
+      </div>
     </div>
   );
 }

@@ -5,9 +5,9 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-manrope)", "ui-sans-serif", "system-ui"],
-        display: ["var(--font-sora)", "var(--font-manrope)", "ui-sans-serif"],
-        cairo: ["var(--font-cairo)", "var(--font-manrope)", "ui-sans-serif"],
+        sans: ["var(--font-cairo)", "ui-sans-serif", "system-ui"],
+        display: ["var(--font-cairo)", "ui-sans-serif", "system-ui"],
+        cairo: ["var(--font-cairo)", "ui-sans-serif", "system-ui"],
       },
       colors: {
         ink: {

@@ -7,24 +7,52 @@ type Props = {
 
 export default function DetailHeader({ title, subtitle, category, progress }: Props) {
   return (
-    <div className="card p-4">
+    <div className="h-[109px] rounded-[10px] border border-[#E0E8ED] bg-white p-4">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <span className="rounded-full bg-slateblue-100 px-3 py-1 text-xs font-semibold text-slateblue-600">
+          <span className="inline-flex h-[28px] items-center justify-center gap-[10px] whitespace-nowrap rounded-[30px] border border-[#E0E8ED] bg-white px-[10px] text-[12px] font-medium leading-[22px] text-[#8597A8]">
             {category}
           </span>
-          <h1 className="mt-2 font-display text-lg font-semibold text-ink-900">{title}</h1>
-          <p className="mt-1 text-xs text-slateblue-500">{subtitle}</p>
+          <h1 className="mt-2 text-[16px] font-bold leading-4 text-[#1D3557]">
+            {title}
+          </h1>
+          <p className="mt-2 text-[14px] font-normal leading-4 text-[#8597A8]">
+            {subtitle}
+          </p>
         </div>
         <div className="flex items-center gap-4">
-          <div
-            className="flex h-16 w-16 items-center justify-center rounded-full"
-            style={{
-              background: `conic-gradient(#18B76A ${progress * 3.6}deg, #E3E9F4 0deg)`,
-            }}
-          >
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-xs font-semibold text-ink-900">
+          <div className="relative flex items-center justify-center" style={{ width: 80.56, height: 80.56 }}>
+            <svg
+              width="80.56"
+              height="80.56"
+              viewBox="0 0 80.56 80.56"
+              className="absolute inset-0"
+            >
+              <circle
+                cx="40.28"
+                cy="40.28"
+                r="34"
+                stroke="#E3E9F4"
+                strokeWidth="6"
+                fill="none"
+              />
+              <circle
+                cx="40.28"
+                cy="40.28"
+                r="34"
+                stroke="#1EA54E"
+                strokeWidth="6"
+                fill="none"
+                strokeDasharray={2 * Math.PI * 34}
+                strokeDashoffset={((100 - progress) / 100) * 2 * Math.PI * 34}
+                strokeLinecap="round"
+                transform="rotate(-90 40.28 40.28)"
+              />
+            </svg>
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white">
+              <span className="font-cairo text-[14px] font-bold leading-4 text-[#1D3557]">
               {progress}%
+              </span>
             </div>
           </div>
         </div>

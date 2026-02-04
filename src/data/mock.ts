@@ -335,10 +335,10 @@ export const activities = [
 ];
 
 export const evidenceSummary = [
-  { label: "Total Evidence", value: "4" },
-  { label: "Under Review Evidence", value: "3" },
-  { label: "In Progress Evidence", value: "2" },
-  { label: "Completed Evidence", value: "1" },
+  { label: "Total Evidence", value: "4", icon: "/icons/doc.svg" },
+  { label: "Under Review Evidence", value: "3", icon: "/icons/under_review.svg" },
+  { label: "In Progress Evidence", value: "2", icon: "/icons/in_progress.svg" },
+  { label: "Completed Evidence", value: "1", icon: "/icons/completed.svg" },
 ];
 
 export const objectiveSections = [
@@ -350,12 +350,12 @@ export const objectiveSections = [
   {
     title: "Implementation Requirements",
     content:
-      "Prepare a digital transformation strategy for electronic government transactions including vision, mission, strategic pillars, and performance indicators.",
+      "Prepare a digital transformation strategy for the transition to electronic government transactions, including the following:\nA. The organization’s vision, mission, strategic pillars, and strategic objectives, and their alignment with the organization’s overall strategy.\nB. Strategic initiatives, programs, and performance indicators.\nC. A clear methodology for integration and coordination with relevant external entities to achieve the strategy’s objectives.\nD. Required competencies, capabilities, and skills necessary to achieve the strategy’s objectives.",
   },
   {
     title: "Evidence Documents",
     content:
-      "Submit the approved digital transformation strategy with all requirements, approved within 36 months.",
+      "Submit the approved digital transformation strategy that includes all the requirements of this standard, provided that it has been approved within a period not exceeding 36 months.",
   },
   {
     title: "Related Regulations",

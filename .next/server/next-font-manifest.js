@@ -1,1 +1,0 @@
-self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/home/waqas_shaukat/projects/personal/tahawul-task/src/app/layout\":[\"static/media/01f0c602c274ea55-s.p.woff2\",\"static/media/4c9affa5bc8f420e-s.p.woff2\",\"static/media/f3f7e95f2dbc4fe4-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
