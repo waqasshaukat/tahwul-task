@@ -123,21 +123,27 @@ export default function PerspectivesOverviewPage() {
           <div className="mt-4">
             <EvidenceTable rows={evidenceRows} />
           </div>
-          <div className="grid gap-4 xl:grid-cols-[2fr_1fr]">
-            <CommentsPanel comments={comments} />
-            <ActivityList title="Recent Activities" items={activities} />
+          <div className="flex w-full gap-[16px]">
+            <div className="flex-[2_2_0%]">
+              <CommentsPanel comments={comments} />
+            </div>
+            <div className="flex-[1_1_0%]">
+              <ActivityList title="Recent Activities" items={activities} />
+            </div>
           </div>
         </div>
       )}
 
-      <div className="mt-[16.5px]">
-        <LeadersRow
-          leaders={[
-            { name: "Ahmed Al-Ali", role: "Strategy Perspective", avatar: "/icons/ahmad.png" },
-            { name: "Ahmed Al-Ali", role: "Strategy Perspective", avatar: "/icons/ahmad.png" },
-          ]}
-        />
-      </div>
+      {activeTab === "Overview" && (
+        <div className="mt-[16.5px]">
+          <LeadersRow
+            leaders={[
+              { name: "Ahmed Al-Ali", role: "Strategy Perspective", avatar: "/icons/ahmad.png" },
+              { name: "Ahmed Al-Ali", role: "Strategy Perspective", avatar: "/icons/ahmad.png" },
+            ]}
+          />
+        </div>
+      )}
     </div>
   );
 }

@@ -318,17 +318,17 @@ export const leaders = [
 
 export const activities = [
   {
-    title: "Document “Strategy_Review.pdf” Was Uploaded By Ahmed Khaled",
+    title: "Roadmap_Version1.docx uploaded by Rami AlSharif",
     time: "5 mins ago",
     type: "doc",
   },
   {
-    title: "Task “Review Compliance Files” Was Assigned To Mona Hamed",
+    title: "KPI_Framework.xlsx uploaded by Mona Hamed",
     time: "20 mins ago",
     type: "task",
   },
   {
-    title: "New Criterion “5.3 Digital Identity” Was Created By Admin",
+    title: "Digital_Transformation_Plan.pdf approved by Advisory Team",
     time: "1 hour ago",
     type: "alert",
   },
