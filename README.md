@@ -1,4 +1,4 @@
-# Tahawul Audit Platform UI
+# Tahwul Audit Platform UI
 
 Three responsive screens implemented in Next.js (App Router) with Tailwind CSS based on the provided mockups.
 
@@ -16,7 +16,7 @@ npm run dev
 ## Screens
 - Dashboard: `/`
 - Perspective Overview: `/perspectives`
-- Perspective Evidence: `/perspectives/evidence`
+- Perspective Evidence: (click on Evidence tab on Perspective screen)
 
 ## Approach
 - Componentized UI in `src/components` for reuse and clarity.
