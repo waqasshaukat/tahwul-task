@@ -31,8 +31,8 @@ export default function PerspectivesEvidencePage() {
 
       <SectionTabs
         tabs={[
-          { label: "Overview", href: "/perspectives" },
-          { label: "Evidence", href: "/perspectives/evidence", active: true },
+          { label: "Overview" },
+          { label: "Evidence", active: true },
         ]}
       />
 

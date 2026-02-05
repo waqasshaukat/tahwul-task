@@ -1,3 +1,5 @@
+ "use client";
+
 type Tab = {
   label: string;
   active?: boolean;

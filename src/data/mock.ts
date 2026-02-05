@@ -5,7 +5,11 @@ export type NavItem = {
   icon?: string;
 };
 
-export const timeline = [
+export const timeline: {
+  label: string;
+  date: string;
+  status: "done" | "next" | "pending";
+}[] = [
   { label: "Kickoff Workshop", date: "Mar 17", status: "done" },
   { label: "Data Collection", date: "Mar 18", status: "done" },
   { label: "Initial Phase", date: "May 8", status: "next" },
@@ -316,7 +320,11 @@ export const leaders = [
   },
 ];
 
-export const activities = [
+export const activities: {
+  title: string;
+  time: string;
+  type: "doc" | "task" | "alert";
+}[] = [
   {
     title: "Roadmap_Version1.docx uploaded by Rami AlSharif",
     time: "5 mins ago",
