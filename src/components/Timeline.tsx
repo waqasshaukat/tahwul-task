@@ -5,7 +5,7 @@ type Item = {
 };
 
 type Props = {
-  items: Item[];
+  items: ReadonlyArray<Item>;
 };
 
 export default function Timeline({ items }: Props) {
