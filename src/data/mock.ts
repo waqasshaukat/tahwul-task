@@ -5,18 +5,14 @@ export type NavItem = {
   icon?: string;
 };
 
-export const timeline: {
-  label: string;
-  date: string;
-  status: "done" | "next" | "pending";
-}[] = [
+export const timeline = [
   { label: "Kickoff Workshop", date: "Mar 17", status: "done" },
   { label: "Data Collection", date: "Mar 18", status: "done" },
   { label: "Initial Phase", date: "May 8", status: "next" },
   { label: "Verification", date: "May 9 - July 12", status: "pending" },
   { label: "Completion Reviews", date: "July 13", status: "pending" },
   { label: "Cycle Conclusion", date: "Aug 21", status: "pending" },
-];
+] as const;
 
 export const statCards = [
   { label: "Overall Progress", value: "78.65%", icon: "/icons/reports-red.svg" },
