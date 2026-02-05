@@ -1,7 +1,7 @@
 type Item = {
   label: string;
   date: string;
-  status: "done" | "next" | "pending";
+  status: "done" | "next" | "pending" | string;
 };
 
 type Props = {
