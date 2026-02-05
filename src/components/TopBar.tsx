@@ -13,8 +13,13 @@ export default function TopBar() {
         </div>
         <div className="flex flex-1 items-center justify-center md:justify-start">
           <div className="relative w-full max-w-[318px]">
+            <img
+              src="/icons/watch_glass.svg"
+              alt=""
+              className="absolute left-[16px] top-[9px] h-4 w-4"
+            />
             <input
-              className="h-[34px] w-full rounded-lg border border-[#E0E8ED] bg-[#F5F8FA] px-4 text-sm text-ink-800 outline-none focus:border-brand-500"
+              className="h-[34px] w-full rounded-lg border border-[#E0E8ED] bg-[#F5F8FA] pl-[40px] pr-4 text-sm text-ink-800 outline-none focus:border-brand-500"
               placeholder="Search"
             />
           </div>
@@ -24,10 +29,7 @@ export default function TopBar() {
             <img src="/icons/notifications.svg" alt="" className="h-4 w-4" />
             <span className="absolute right-1.5 top-1.5 h-1.5 w-1.5 rounded-full bg-rose-500" />
           </button>
-          <Link
-            href="/perspectives"
-            className="flex h-8 w-[128px] items-center gap-1 rounded-full bg-[#F9FAFA] px-2 text-[12px] font-semibold text-ink-800"
-          >
+          <div className="flex h-8 w-[128px] items-center gap-1 rounded-full bg-[#F9FAFA] px-2 text-[12px] font-semibold text-ink-800">
             <img
               src="/icons/man.png"
               alt="Mohamed"
@@ -35,7 +37,7 @@ export default function TopBar() {
             />
             <span className="min-w-0 flex-1 truncate">Mohamed</span>
             <img src="/icons/down.svg" alt="" className="h-3 w-3 flex-shrink-0" />
-          </Link>
+          </div>
         </div>
       </div>
     </header>

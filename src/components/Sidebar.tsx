@@ -15,39 +15,41 @@ const navItems: NavItem[] = [
 
 export default function Sidebar({
   collapsed,
+  isAnimating,
   onToggle,
 }: {
   collapsed: boolean;
+  isAnimating: boolean;
   onToggle: () => void;
 }) {
   const pathname = usePathname();
   return (
     <aside
-      className="hidden flex-col border-r border-[#F1F2F3] bg-[#1D3557] text-white transition-all md:fixed md:inset-y-0 md:flex"
+      className="hidden flex-col border-r border-[#F1F2F3] bg-[#1D3557] text-white transition-all md:fixed md:inset-y-0 md:flex overflow-visible z-20"
       style={{ width: collapsed ? 72 : 256 }}
     >
-      <div className="relative flex h-16 items-center px-6">
+      <div className="relative flex h-16 items-center px-6 overflow-visible">
         <img
           src="/tahawul-logo.svg"
           alt="Tahawul"
           className={`h-10 transition-all ${
-            collapsed ? "w-10" : "w-[100px]"
+            collapsed ? "w-0 opacity-0" : "w-[100px] opacity-100"
           }`}
         />
-        <button
-          className="absolute top-[14px] z-30 flex h-8 w-8 items-center justify-center rounded-full border border-slateblue-100 bg-white"
-          style={{ left: collapsed ? 56 : 240, boxShadow: "0 0 2px rgba(0,0,0,0.1)" }}
-          aria-label="Collapse sidebar"
-          onClick={onToggle}
-        >
-          <img
-            src="/icons/arrow.svg"
-            alt=""
-            className={`h-3 w-3 transition-transform ${
-              collapsed ? "rotate-180" : ""
-            }`}
-          />
-        </button>
+        {!isAnimating && (
+          <button
+            className="absolute top-[14px] z-50 flex h-8 w-8 items-center justify-center rounded-full border border-slateblue-100 bg-white"
+            style={{ left: collapsed ? 52 : 240, boxShadow: "0 0 2px rgba(0,0,0,0.1)" }}
+            aria-label="Collapse sidebar"
+            onClick={onToggle}
+          >
+            <img
+              src="/icons/arrow.svg"
+              alt=""
+              className={`h-3 w-3 ${collapsed ? "rotate-180" : ""}`}
+            />
+          </button>
+        )}
       </div>
       <nav className="flex-1 px-4 py-4">
         <div className="space-y-2">
@@ -62,15 +64,21 @@ export default function Sidebar({
                 href={item.href}
                 className={`flex items-center gap-2.5 rounded-lg px-4 py-2 text-[14px] font-medium leading-4 transition ${
                   isActive
-                    ? "bg-white/10 text-white"
-                    : "text-[#7B9FC3] hover:bg-white/5 hover:text-white"
+                    ? collapsed
+                      ? "text-white"
+                      : "bg-white/10 text-white"
+                    : "text-[#7B9FC3] hover:text-white"
                 }`}
               >
-                <span className="flex h-7 w-7 items-center justify-center">
+                <span
+                  className={`flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg ${
+                    isActive ? "bg-white/10" : "bg-transparent"
+                  }`}
+                >
                   <img
                     src={item.icon ?? "/icons/dashboard.svg"}
                     alt=""
-                    className={`h-[14px] w-[14px] ${
+                    className={`h-[14px] w-[14px] min-h-[14px] min-w-[14px] flex-shrink-0 ${
                       isActive ? "brightness-200" : "opacity-80"
                     }`}
                   />
@@ -81,9 +89,7 @@ export default function Sidebar({
           })}
         </div>
       </nav>
-      <div className="px-6 pb-6 text-xs text-white/50">
-        v1.0 • Riyadh
-      </div>
+      <div className="px-6 pb-6 text-xs text-white/50"></div>
     </aside>
   );
 }

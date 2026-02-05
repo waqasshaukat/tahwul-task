@@ -13,9 +13,9 @@ export default function LeadersRow({ leaders }: Props) {
     <div className="h-[129.6px] rounded-[10px] border border-[#E0E8ED] bg-white p-4">
       <h3 className="text-[16px] font-bold leading-4 text-[#1D3557]">Leaders</h3>
       <div className="mt-4 flex flex-wrap gap-4">
-        {leaders.map((leader) => (
+        {leaders.map((leader, index) => (
           <div
-            key={leader.name}
+            key={`${leader.name}-${leader.role}-${index}`}
             className="flex h-[63.11px] w-[225px] items-center gap-[11px] rounded-[10px] bg-[#F5F8FA] px-[13px] overflow-hidden"
           >
             {leader.avatar ? (
