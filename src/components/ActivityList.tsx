@@ -25,10 +25,10 @@ export default function ActivityList({ title, items }: Props) {
         {items.map((item) => (
           <div
             key={item.title}
-            className="flex h-full items-center justify-between gap-3 py-3 text-sm"
+            className="flex h-full items-start justify-between gap-3 pt-[16px] pb-3 text-sm"
           >
             <span
-              className={`mt-[6px] h-2 w-2 rounded-full ${badgeMap[item.type]}`}
+              className={`mt-[4px] h-2 w-2 rounded-full ${badgeMap[item.type]}`}
             />
             <div className="flex-1">
               <p className="max-h-[40px] overflow-hidden text-[16px] font-medium leading-[20px] text-[#1D3557]">
