@@ -53,7 +53,7 @@ export default function Timeline({ items }: Props) {
   }, [items]);
 
   return (
-    <div className="rounded-[10px] border border-[#E0E8ED] bg-white p-4 h-[159px]">
+    <div className="rounded-[10px] border border-[#E0E8ED] bg-white p-4 lg:h-[159px]">
       <div className="flex items-center justify-between">
         <h3 className="text-[16px] font-bold leading-4 text-[#1D3557]">
           Project Timeline
@@ -81,7 +81,7 @@ export default function Timeline({ items }: Props) {
             );
           })}
         </div>
-        <div className="relative mt-4 h-[44px]">
+        <div className="relative mt-4 h-[44px] hidden lg:block">
           {items.map((item, index) => {
             const leftOffset = getLeftOffset(index);
             const isLast = index === items.length - 1;
@@ -109,6 +109,25 @@ export default function Timeline({ items }: Props) {
               </div>
             );
           })}
+        </div>
+        <div className="mt-4 flex flex-col gap-3 lg:hidden">
+          {items.map((item) => (
+            <div key={item.label} className="flex items-start gap-3">
+              <span
+                className={`mt-1 h-2.5 w-2.5 flex-shrink-0 rounded-full ${
+                  item.status === "done" ? "bg-[#1EA54E]" : "bg-[#DB1F26]"
+                }`}
+              />
+              <div>
+                <span className="block text-[12px] font-normal leading-4 text-[#8597A8]">
+                  {item.date}
+                </span>
+                <span className="mt-0.5 block text-[13px] font-medium leading-4 text-[#1D3557]">
+                  {item.label}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

@@ -22,7 +22,7 @@ export default function DashboardPage() {
     <div className="space-y-6">
       <Timeline items={timeline} />
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+      <div className="grid gap-4 lg:grid-cols-3 xl:grid-cols-6">
         {statCards.map((card) => (
           <StatCard key={card.label} {...card} />
         ))}
@@ -30,7 +30,7 @@ export default function DashboardPage() {
 
       <ProgressMatrix columns={progressColumns} />
 
-      <div className="grid gap-4 lg:grid-cols-3">
+      <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
         <SemiGaugeCard
           title={overallComplianceScore.title}
           value={overallComplianceScore.value}
@@ -41,7 +41,7 @@ export default function DashboardPage() {
         <ActivityList title="Recent Activities" items={activities} />
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-3">
+      <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
         <div className="lg:col-span-2">
           <BarChart
             title="12-Month Performance"

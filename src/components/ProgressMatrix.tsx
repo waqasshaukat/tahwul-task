@@ -52,7 +52,7 @@ export default function ProgressMatrix({ columns }: Props) {
           ))}
         </div>
       </div>
-      <div className="mt-4 grid flex-1 items-stretch gap-4 md:grid-cols-5 xl:grid-cols-10">
+      <div className="mt-4 grid flex-1 items-stretch gap-4 lg:grid-cols-5 xl:grid-cols-10">
         {columns.map((column) => (
           <div
             key={column.title}
@@ -75,13 +75,13 @@ export default function ProgressMatrix({ columns }: Props) {
                   <p className="text-center text-[10px] font-normal leading-4 text-[#1D3557]">
                     {segment.title}
                   </p>
-                  <div className="flex flex-1 items-center justify-center">
+                  <div className="flex flex-1 items-center justify-center px-1">
                     <div
                       className="grid justify-center gap-[10px]"
                       style={{
                         gridTemplateColumns: `repeat(${getBallColumns(
                           segment.items.length
-                        )}, 24px)`,
+                        )}, minmax(0, 24px))`,
                       }}
                     >
                       {segment.items.map((item) => (

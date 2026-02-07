@@ -11,11 +11,13 @@ type Props = {
   name: string;
   avatarSrc: string;
   items: ReadonlyArray<UserMenuItem>;
+  compact?: boolean;
 };
 
-export default function UserMenu({ name, avatarSrc, items }: Props) {
+export default function UserMenu({ name, avatarSrc, items, compact }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const isCompact = compact ?? false;
 
   useEffect(() => {
     if (!isOpen) return;
@@ -37,17 +39,28 @@ export default function UserMenu({ name, avatarSrc, items }: Props) {
       <button
         type="button"
         onClick={() => setIsOpen((open) => !open)}
-        className="flex h-8 w-[128px] cursor-pointer items-center gap-1 rounded-full bg-[#F9FAFA] px-2 text-[12px] font-semibold text-ink-800 transition hover:bg-[#EFF2F4]"
+        className={`flex h-8 cursor-pointer items-center gap-1 rounded-full bg-[#F9FAFA] text-[12px] font-semibold text-ink-800 transition hover:bg-[#EFF2F4] ${
+          isCompact ? "w-8 justify-center p-1" : "w-[128px] px-2"
+        }`}
         aria-haspopup="menu"
         aria-expanded={isOpen}
+        aria-label={isCompact ? `${name} menu` : undefined}
       >
         <img
           src={avatarSrc}
           alt={name}
           className="h-6 w-6 rounded-full object-cover"
         />
-        <span className="min-w-0 flex-1 truncate">{name}</span>
-        <img src="/icons/down.svg" alt="" className="h-3 w-3 flex-shrink-0" />
+        {isCompact ? null : (
+          <>
+            <span className="min-w-0 flex-1 truncate">{name}</span>
+            <img
+              src="/icons/down.svg"
+              alt=""
+              className="h-3 w-3 flex-shrink-0"
+            />
+          </>
+        )}
       </button>
       <div
         role="menu"

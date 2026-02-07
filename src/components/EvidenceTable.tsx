@@ -14,9 +14,9 @@ type Props = {
 
 export default function EvidenceTable({ rows }: Props) {
   return (
-    <div className="h-[259px] w-full rounded-[10px] border border-[#E0E8ED] bg-white overflow-hidden">
-      <div className="pt-[14px] pr-[16px] pl-[17px] overflow-hidden">
-        <table className="w-full table-fixed border-separate border-spacing-0 text-left text-xs">
+    <div className="w-full rounded-[10px] border border-[#E0E8ED] bg-white md:h-[259px] md:overflow-hidden">
+      <div className="hidden md:block pt-[14px] pr-[16px] pl-[17px] overflow-x-auto md:overflow-hidden">
+        <table className="min-w-[920px] w-full border-separate border-spacing-0 text-left text-xs md:table-fixed">
           <colgroup>
             <col style={{ width: 120 }} />
             <col style={{ width: 20 }} />
@@ -127,6 +127,75 @@ export default function EvidenceTable({ rows }: Props) {
             ))}
           </tbody>
         </table>
+      </div>
+      <div className="flex flex-col gap-3 p-4 md:hidden">
+        {rows.map((row) => (
+          <div
+            key={row.number}
+            className="rounded-[10px] border border-[#E0E8ED] bg-white p-3"
+          >
+            <div className="flex items-center justify-between">
+              <span className="text-[12px] font-medium text-[#8597A8]">
+                Document Number
+              </span>
+              <span className="text-[13px] font-semibold text-[#1D3557]">
+                {row.number}
+              </span>
+            </div>
+            <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-3">
+              <div>
+                <span className="block text-[12px] text-[#8597A8]">
+                  Document Name
+                </span>
+                <span className="block break-words text-[13px] font-medium text-[#1D3557]">
+                  {row.name}
+                </span>
+              </div>
+              <div>
+                <span className="block text-[12px] text-[#8597A8]">
+                  Document Lead
+                </span>
+                <span className="block break-words text-[13px] font-medium text-[#1D3557]">
+                  {row.lead}
+                </span>
+              </div>
+              <div>
+                <span className="block text-[12px] text-[#8597A8]">
+                  Document Preparer
+                </span>
+                <span className="block text-[13px] font-medium text-[#1D3557]">
+                  {row.preparer}
+                </span>
+              </div>
+              <div>
+                <span className="block text-[12px] text-[#8597A8]">Date</span>
+                <span className="block text-[13px] font-medium text-[#1D3557]">
+                  {row.date}
+                </span>
+              </div>
+              <div>
+                <span className="block text-[12px] text-[#8597A8]">
+                  Due Date
+                </span>
+                <span className="block text-[13px] font-medium text-[#1D3557]">
+                  {row.due}
+                </span>
+              </div>
+              <div className="flex items-end">
+                <span
+                  className={`inline-flex items-center justify-center rounded-[30px] px-[10px] text-center text-[12px] font-medium leading-[18px] ${
+                    row.status === "Approved"
+                      ? "bg-[#34C759]/10 text-[#34C759]"
+                      : "bg-[#FFCC00]/10 text-[#FFCC00]"
+                  }`}
+                  style={{ height: 26 }}
+                >
+                  {row.status}
+                </span>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

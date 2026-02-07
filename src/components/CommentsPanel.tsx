@@ -17,13 +17,13 @@ export default function CommentsPanel({ comments }: Props) {
   const isDisabled = message.trim().length === 0;
 
   return (
-    <div className="h-[433px] w-full rounded-[10px] border border-[#E0E8ED] bg-white p-[24px]">
+    <div className="w-full rounded-[10px] border border-[#E0E8ED] bg-white p-4 md:h-[433px] md:p-[24px]">
       <h3 className="text-[16px] font-bold leading-4 text-[#1D3557]">Comments</h3>
       <div className="mt-3 space-y-4">
         {comments.map((comment) => (
           <div
             key={comment.author}
-            className="h-[84px] w-full cursor-pointer rounded-[10px] border border-[#E0E8ED] bg-white p-4 transition hover:bg-[#F1F6FA]"
+            className="w-full cursor-pointer rounded-[10px] border border-[#E0E8ED] bg-white p-4 transition hover:bg-[#F1F6FA] md:h-[84px]"
           >
             <div className="flex items-start justify-between">
               <div className="flex items-start gap-[10px]">
@@ -34,7 +34,7 @@ export default function CommentsPanel({ comments }: Props) {
                   <span className="block pt-[4px] text-[14px] font-bold leading-[16px] text-[#1D3557]">
                     {comment.author}
                   </span>
-                  <p className="mt-[12px] text-[14px] font-normal leading-[20px] text-[#1D3557] -ml-[34px]">
+                  <p className="mt-[12px] text-[14px] font-normal leading-[20px] text-[#1D3557] md:-ml-[34px]">
                     {comment.text}
                   </p>
                 </div>

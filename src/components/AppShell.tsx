@@ -8,6 +8,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
   const [collapsed, setCollapsed] = useState(false);
   const [isMdUp, setIsMdUp] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 768px)");
@@ -22,6 +23,8 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       <Sidebar
         collapsed={collapsed}
         isAnimating={isAnimating}
+        mobileOpen={isMobileNavOpen}
+        onCloseMobile={() => setIsMobileNavOpen(false)}
         onToggle={() => {
           setIsAnimating(true);
           setCollapsed((prev) => !prev);
@@ -32,7 +35,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         className="flex-1 transition-all md:pl-[256px]"
         style={{ paddingLeft: isMdUp ? (collapsed ? 72 : 256) : undefined }}
       >
-        <TopBar />
+        <TopBar onMenuClick={() => setIsMobileNavOpen(true)} />
         <main className="px-4 pb-12 pt-6 md:px-8">{children}</main>
       </div>
     </div>

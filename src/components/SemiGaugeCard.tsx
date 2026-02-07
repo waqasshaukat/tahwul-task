@@ -1,3 +1,5 @@
+"use client";
+
 type Props = {
   title: string;
   value: number;
@@ -5,6 +7,7 @@ type Props = {
   color?: string;
 };
 
+import { useEffect, useState } from "react";
 import SemiGauge from "./SemiGauge";
 
 export default function SemiGaugeCard({
@@ -13,8 +16,19 @@ export default function SemiGaugeCard({
   subtitle,
   color = "#DB1F26",
 }: Props) {
-  const size = 258.09;
+  const [isXlUp, setIsXlUp] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1280px)");
+    const update = () => setIsXlUp(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  const size = isXlUp ? 258.09 : 220;
   const stroke = 16;
+  const gaugeHeight = isXlUp ? 170 : 150;
 
   return (
     <div className="h-[283.45px] w-full rounded-[10px] border border-[#E0E8ED] bg-white p-4">
@@ -22,7 +36,10 @@ export default function SemiGaugeCard({
         {title}
       </h3>
       <div className="mt-[25px] flex flex-1 items-end justify-center">
-        <div className="relative h-[170px] w-[258px]">
+        <div
+          className="relative"
+          style={{ width: size, height: gaugeHeight }}
+        >
           <SemiGauge
             value={value}
             subtitle={subtitle}

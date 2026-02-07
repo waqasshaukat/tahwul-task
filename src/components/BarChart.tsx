@@ -9,6 +9,7 @@ import {
   Tooltip,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import { useEffect, useState } from "react";
 
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Filler);
 
@@ -19,6 +20,17 @@ type Props = {
 };
 
 export default function BarChart({ title, values, labels }: Props) {
+  const [isLgUp, setIsLgUp] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const update = () => setIsLgUp(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  const barSize = isLgUp ? 40 : 16;
   const data = {
     labels,
     datasets: [
@@ -34,8 +46,8 @@ export default function BarChart({ title, values, labels }: Props) {
           return gradient;
         },
         borderRadius: 4,
-        barThickness: 40,
-        maxBarThickness: 40,
+        barThickness: barSize,
+        maxBarThickness: barSize,
       },
     ],
   };
