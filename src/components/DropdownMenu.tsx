@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Props = {
   value: string;
@@ -14,9 +14,25 @@ export default function DropdownMenu({
   disabled = true,
 }: Props) {
   const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (!containerRef.current) return;
+      if (containerRef.current.contains(event.target as Node)) return;
+      setIsOpen(false);
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+    };
+  }, [isOpen]);
 
   return (
-    <div className="relative">
+    <div className="relative" ref={containerRef}>
       <button
         type="button"
         onClick={() => setIsOpen((open) => !open)}
@@ -43,7 +59,11 @@ export default function DropdownMenu({
             type="button"
             role="menuitem"
             disabled={disabled}
-            className="flex w-full cursor-not-allowed items-center justify-center rounded-[8px] px-2 py-2 text-xs font-semibold text-[#A7B4C0]"
+            className={`flex w-full items-center justify-center rounded-[8px] px-2 py-2 text-xs font-semibold transition ${
+              disabled
+                ? "cursor-not-allowed text-[#A7B4C0]"
+                : "cursor-pointer text-slateblue-600 hover:bg-[#F1F6FA]"
+            }`}
           >
             {year}
           </button>

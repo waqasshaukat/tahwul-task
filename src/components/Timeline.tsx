@@ -58,7 +58,7 @@ export default function Timeline({ items }: Props) {
         <h3 className="text-[16px] font-bold leading-4 text-[#1D3557]">
           Project Timeline
         </h3>
-        <DropdownMenu value="2026" options={yearOptions} />
+        <DropdownMenu value="2026" options={yearOptions} disabled={false} />
       </div>
       <div className="mt-4">
         <div className="relative h-[14px] w-full rounded-[10px] bg-[#F5F8FB]">
