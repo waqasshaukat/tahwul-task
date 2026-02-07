@@ -30,7 +30,7 @@ export default function PerspectivesOverviewPage() {
         />
       </div>
 
-      <div className="flex w-full flex-wrap justify-between gap-4">
+      <div className="grid w-full gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {evidenceSummary.map((item) => (
           <EvidenceSummaryCard key={item.label} {...item} />
         ))}
