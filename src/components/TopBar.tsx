@@ -1,5 +1,8 @@
 import Link from "next/link";
 
+import NotificationMenu from "./NotificationMenu";
+import { notifications } from "../data/mock";
+
 export default function TopBar() {
   return (
     <header className="sticky top-0 z-10 border-b border-[#E0E8ED] bg-white">
@@ -25,10 +28,7 @@ export default function TopBar() {
           </div>
         </div>
         <div className="flex items-center gap-3">
-          <button className="relative flex h-8 w-8 items-center justify-center rounded-full bg-white">
-            <img src="/icons/notifications.svg" alt="" className="h-4 w-4" />
-            <span className="absolute right-1.5 top-1.5 h-1.5 w-1.5 rounded-full bg-rose-500" />
-          </button>
+          <NotificationMenu items={notifications} />
           <div className="flex h-8 w-[128px] items-center gap-1 rounded-full bg-[#F9FAFA] px-2 text-[12px] font-semibold text-ink-800">
             <img
               src="/icons/man.png"

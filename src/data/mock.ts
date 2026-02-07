@@ -14,6 +14,29 @@ export const timeline = [
   { label: "Cycle Conclusion", date: "Aug 21", status: "pending" },
 ] as const;
 
+export const notifications = [
+  {
+    title: "New evidence uploaded",
+    detail: "3 documents added to Verification.",
+    time: "5m ago",
+  },
+  {
+    title: "Score updated",
+    detail: "Operations and Execution is now 98%.",
+    time: "1h ago",
+  },
+  {
+    title: "Reviewer assigned",
+    detail: "Noura Al-Salem joined Cycle Conclusion.",
+    time: "Yesterday",
+  },
+  {
+    title: "Deadline reminder",
+    detail: "Completion Reviews due July 13.",
+    time: "2 days ago",
+  },
+] as const;
+
 export const statCards = [
   { label: "Overall Progress", value: "78.65%", icon: "/icons/reports-red.svg" },
   { label: "Total Criteria", value: "95", icon: "/icons/criteria.svg" },
