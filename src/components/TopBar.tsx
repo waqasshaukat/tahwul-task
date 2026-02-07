@@ -23,7 +23,7 @@ export default function TopBar() {
               className="absolute left-[16px] top-[9px] h-4 w-4"
             />
             <input
-              className="h-[34px] w-full rounded-lg border border-[#E0E8ED] bg-[#F5F8FA] pl-[40px] pr-4 text-sm text-ink-800 outline-none focus:border-brand-500"
+              className="h-[34px] w-full rounded-lg border border-[#E0E8ED] bg-[#F5F8FA] pl-[40px] pr-4 text-sm text-ink-800 outline-none focus:border-[#B9C6D1] focus:ring-2 focus:ring-[#E6EEF5]"
               placeholder="Search"
             />
           </div>
