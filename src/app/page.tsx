@@ -12,6 +12,7 @@ import {
   progressColumns,
   statCards,
   timeline,
+  twelveMonthPerformance,
 } from "@/data/mock";
 
 export default function DashboardPage() {
@@ -42,8 +43,8 @@ export default function DashboardPage() {
         <div className="lg:col-span-2">
           <BarChart
             title="12-Month Performance"
-            values={[72, 66, 69, 42, 74, 55, 38, 71, 52, 64, 78, 70]}
-            labels={["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"]}
+            values={twelveMonthPerformance.map((item) => item.value)}
+            labels={twelveMonthPerformance.map((item) => item.label)}
           />
         </div>
         <GaugeCard

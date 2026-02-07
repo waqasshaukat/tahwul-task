@@ -368,6 +368,21 @@ export const activities: {
   },
 ];
 
+export const twelveMonthPerformance = [
+  { label: "Jan", value: 88 },
+  { label: "Feb", value: 78 },
+  { label: "Mar", value: 90 },
+  { label: "Apr", value: 60 },
+  { label: "May", value: 74 },
+  { label: "Jun", value: 55 },
+  { label: "Jul", value: 38 },
+  { label: "Aug", value: 71 },
+  { label: "Sept", value: 52 },
+  { label: "Oct", value: 64 },
+  { label: "Nov", value: 78 },
+  { label: "Dec", value: 70 },
+] as const;
+
 export const evidenceSummary = [
   { label: "Total Evidence", value: "4", icon: "/icons/doc.svg" },
   { label: "Under Review Evidence", value: "3", icon: "/icons/under_review.svg" },
