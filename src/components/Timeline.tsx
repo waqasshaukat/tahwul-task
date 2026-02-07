@@ -1,6 +1,9 @@
 "use client";
 
 import { useLayoutEffect, useRef, useState } from "react";
+import DropdownMenu from "./DropdownMenu";
+
+const yearOptions = ["2025", "2024", "2023"] as const;
 
 type Item = {
   label: string;
@@ -55,10 +58,7 @@ export default function Timeline({ items }: Props) {
         <h3 className="text-[16px] font-bold leading-4 text-[#1D3557]">
           Project Timeline
         </h3>
-        <span className="flex h-[34px] w-[90px] items-center justify-center gap-2 rounded-[10px] border border-[#E0E8ED] bg-white text-xs font-semibold text-slateblue-600">
-          2026
-          <img src="/icons/down.svg" alt="" className="h-3 w-3" />
-        </span>
+        <DropdownMenu value="2026" options={yearOptions} />
       </div>
       <div className="mt-4">
         <div className="relative h-[14px] w-full rounded-[10px] bg-[#F5F8FB]">
