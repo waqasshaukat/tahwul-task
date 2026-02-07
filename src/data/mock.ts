@@ -8,9 +8,9 @@ export type NavItem = {
 export const timeline = [
   { label: "Kickoff Workshop", date: "Mar 17", status: "done" },
   { label: "Data Collection", date: "Mar 18", status: "done" },
-  { label: "Initial Phase", date: "May 8", status: "next" },
-  { label: "Verification", date: "May 9 - July 12", status: "pending" },
-  { label: "Completion Reviews", date: "July 13", status: "pending" },
+  { label: "Initial Phase", date: "May 8", status: "done" },
+  { label: "Verification", date: "May 9 - July 12", status: "done" },
+  { label: "Completion Reviews", date: "July 13", status: "next" },
   { label: "Cycle Conclusion", date: "Aug 21", status: "pending" },
 ] as const;
 
@@ -321,22 +321,22 @@ export const activities: {
   time: string;
   type: "doc" | "task" | "alert";
 }[] = [
-  {
-    title: "Roadmap_Version1.docx uploaded by Rami AlSharif",
-    time: "5 mins ago",
-    type: "doc",
-  },
-  {
-    title: "KPI_Framework.xlsx uploaded by Mona Hamed",
-    time: "20 mins ago",
-    type: "task",
-  },
-  {
-    title: "Digital_Transformation_Plan.pdf approved by Advisory Team",
-    time: "1 hour ago",
-    type: "alert",
-  },
-];
+    {
+      title: "Roadmap_Version1.docx uploaded by Rami AlSharif",
+      time: "5 mins ago",
+      type: "doc",
+    },
+    {
+      title: "KPI_Framework.xlsx uploaded by Mona Hamed",
+      time: "20 mins ago",
+      type: "task",
+    },
+    {
+      title: "Digital_Transformation_Plan.pdf approved by Advisory Team",
+      time: "1 hour ago",
+      type: "alert",
+    },
+  ];
 
 export const evidenceSummary = [
   { label: "Total Evidence", value: "4", icon: "/icons/doc.svg" },

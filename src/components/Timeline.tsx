@@ -1,3 +1,7 @@
+"use client";
+
+import { useLayoutEffect, useRef, useState } from "react";
+
 type Item = {
   label: string;
   date: string;
@@ -9,6 +13,42 @@ type Props = {
 };
 
 export default function Timeline({ items }: Props) {
+  const labelRefs = useRef<Array<HTMLSpanElement | null>>([]);
+  const [labelWidths, setLabelWidths] = useState<number[]>([]);
+  const leftPadding = 47;
+  const rightPadding = 46.97;
+  const spacing =
+    items.length > 1
+      ? `calc((100% - ${leftPadding}px - ${rightPadding}px) / ${
+          items.length - 1
+        })`
+      : "0px";
+  const getLeftOffset = (index: number) =>
+    index === items.length - 1
+      ? `calc(100% - ${rightPadding}px)`
+      : `calc(${leftPadding}px + ${index} * ${spacing})`;
+  const getLabelCenterOffset = (index: number) =>
+    index === items.length - 1
+      ? `calc(${getLeftOffset(index)} - 6px)`
+      : getLeftOffset(index);
+  const lastDoneIndex = items.reduce(
+    (acc, item, index) => (item.status === "done" ? index : acc),
+    -1
+  );
+  const labelHalfWidth =
+    lastDoneIndex >= 0 ? (labelWidths[lastDoneIndex] ?? 0) / 2 : 0;
+  const progressWidth =
+    lastDoneIndex >= 0
+      ? `calc(${getLabelCenterOffset(lastDoneIndex)} + ${labelHalfWidth}px)`
+      : "0px";
+
+  useLayoutEffect(() => {
+    const widths = labelRefs.current.map((el) =>
+      el ? el.getBoundingClientRect().width : 0
+    );
+    setLabelWidths(widths);
+  }, [items]);
+
   return (
     <div className="rounded-[10px] border border-[#E0E8ED] bg-white p-4 h-[159px]">
       <div className="flex items-center justify-between">
@@ -22,15 +62,12 @@ export default function Timeline({ items }: Props) {
       </div>
       <div className="mt-4">
         <div className="relative h-[14px] w-full rounded-[10px] bg-[#F5F8FB]">
-          <div className="absolute left-0 top-0 h-[14px] w-[307px] rounded-[10px] bg-[#1EA54E]" />
+          <div
+            className="absolute left-0 top-0 h-[14px] rounded-[10px] bg-[#1EA54E]"
+            style={{ width: progressWidth }}
+          />
           {items.map((item, index) => {
-            const leftPadding = 47;
-            const rightPadding = 46.97;
-            const spacing = `calc((100% - ${leftPadding}px - ${rightPadding}px) / ${items.length - 1})`;
-            const leftOffset =
-              index === items.length - 1
-                ? `calc(100% - ${rightPadding}px)`
-                : `calc(${leftPadding}px + ${index} * ${spacing})`;
+            const leftOffset = getLeftOffset(index);
             return (
               <span
                 key={item.label}
@@ -46,13 +83,7 @@ export default function Timeline({ items }: Props) {
         </div>
         <div className="relative mt-4 h-[44px]">
           {items.map((item, index) => {
-            const leftPadding = 47;
-            const rightPadding = 46.97;
-            const spacing = `calc((100% - ${leftPadding}px - ${rightPadding}px) / ${items.length - 1})`;
-            const leftOffset =
-              index === items.length - 1
-                ? `calc(100% - ${rightPadding}px)`
-                : `calc(${leftPadding}px + ${index} * ${spacing})`;
+            const leftOffset = getLeftOffset(index);
             const isLast = index === items.length - 1;
             return (
               <div
@@ -66,6 +97,9 @@ export default function Timeline({ items }: Props) {
                   {item.date}
                 </span>
                 <span
+                  ref={(el) => {
+                    labelRefs.current[index] = el;
+                  }}
                   className={`mt-[6px] block text-[14px] font-medium leading-4 text-[#1D3557] ${
                     isLast ? "whitespace-nowrap" : ""
                   }`}
