@@ -21,7 +21,7 @@ export default function SemiGaugeCard({
       <h3 className="text-[16px] font-bold leading-4 text-[#1D3557]">
         {title}
       </h3>
-      <div className="mt-2 flex flex-1 items-end justify-center">
+      <div className="mt-[25px] flex flex-1 items-end justify-center">
         <div className="relative h-[170px] w-[258px]">
           <SemiGauge
             value={value}
