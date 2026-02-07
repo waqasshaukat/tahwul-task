@@ -351,22 +351,22 @@ export const activities: {
   time: string;
   type: "doc" | "task" | "alert";
 }[] = [
-    {
-      title: "Roadmap_Version1.docx uploaded by Rami AlSharif",
-      time: "5 mins ago",
-      type: "doc",
-    },
-    {
-      title: "KPI_Framework.xlsx uploaded by Mona Hamed",
-      time: "20 mins ago",
-      type: "task",
-    },
-    {
-      title: "Digital_Transformation_Plan.pdf approved by Advisory Team",
-      time: "1 hour ago",
-      type: "alert",
-    },
-  ];
+  {
+    title: 'Document "Strategy_Review.Pdf" Was Uploaded By Ahmed Khaled',
+    time: "5 Mins Ago",
+    type: "doc",
+  },
+  {
+    title: 'Task "Review Compliance Files" Was Assigned To Mona Hamed',
+    time: "20 Mins Ago",
+    type: "task",
+  },
+  {
+    title: 'New Criterion "5.3 Digital Identity" Was Created By Admin',
+    time: "1 Hour Ago",
+    type: "alert",
+  },
+];
 
 export const evidenceSummary = [
   { label: "Total Evidence", value: "4", icon: "/icons/doc.svg" },
