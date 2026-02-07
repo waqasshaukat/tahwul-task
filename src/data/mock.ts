@@ -351,22 +351,22 @@ export const activities: {
   time: string;
   type: "doc" | "task" | "alert";
 }[] = [
-  {
-    title: 'Document "Strategy_Review.Pdf" Was Uploaded By Ahmed Khaled',
-    time: "5 Mins Ago",
-    type: "doc",
-  },
-  {
-    title: 'Task "Review Compliance Files" Was Assigned To Mona Hamed',
-    time: "20 Mins Ago",
-    type: "task",
-  },
-  {
-    title: 'New Criterion "5.3 Digital Identity" Was Created By Admin',
-    time: "1 Hour Ago",
-    type: "alert",
-  },
-];
+    {
+      title: 'Document "Strategy_Review.Pdf" Was Uploaded By Ahmed Khaled',
+      time: "5 Mins Ago",
+      type: "doc",
+    },
+    {
+      title: 'Task "Review Compliance Files" Was Assigned To Mona Hamed',
+      time: "20 Mins Ago",
+      type: "task",
+    },
+    {
+      title: 'New Criterion "5.3 Digital Identity" Was Created By Admin',
+      time: "1 Hour Ago",
+      type: "alert",
+    },
+  ];
 
 export const twelveMonthPerformance = [
   { label: "Jan", value: 88 },
@@ -385,14 +385,14 @@ export const twelveMonthPerformance = [
 
 export const overallComplianceScore = {
   title: "Overall Compliance Score",
-  value: 65,
+  value: 55,
   subtitle: "Basic Standards 2025",
   color: "#DB1F26",
 } as const;
 
 export const auditReadiness = {
   title: "Audit Readiness",
-  value: 80,
+  value: 90,
   subtitle: "Readiness Level",
   meta: [
     { label: "Overdue Sets", value: "12" },
