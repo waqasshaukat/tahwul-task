@@ -8,7 +8,9 @@ import StatCard from "@/components/StatCard";
 import Timeline from "@/components/Timeline";
 import {
   activities,
+  auditReadiness,
   leaders,
+  overallComplianceScore,
   progressColumns,
   statCards,
   timeline,
@@ -30,10 +32,10 @@ export default function DashboardPage() {
 
       <div className="grid gap-4 lg:grid-cols-3">
         <SemiGaugeCard
-          title="Overall Compliance Score"
-          value={65}
-          subtitle="Basic Standards 2025"
-          color="#DB1F26"
+          title={overallComplianceScore.title}
+          value={overallComplianceScore.value}
+          subtitle={overallComplianceScore.subtitle}
+          color={overallComplianceScore.color}
         />
         <LeaderList title="Top Performing Perspective Leaders" leaders={leaders} />
         <ActivityList title="Recent Activities" items={activities} />
@@ -48,13 +50,10 @@ export default function DashboardPage() {
           />
         </div>
         <GaugeCard
-          title="Audit Readiness"
-          value={80}
-          subtitle="Readiness Level"
-          meta={[
-            { label: "Overdue Sets", value: "12" },
-            { label: "Missing Evidence", value: "5" },
-          ]}
+          title={auditReadiness.title}
+          value={auditReadiness.value}
+          subtitle={auditReadiness.subtitle}
+          meta={auditReadiness.meta}
         />
       </div>
     </div>

@@ -26,7 +26,7 @@ export default function PerspectivesOverviewPage() {
           title="Digital Transformation Strategic Planning"
           subtitle="Develop comprehensive strategic plans for digital transformation aligned with organizational goals"
           category="Strategy & Planning"
-          progress={100}
+          progress={90}
         />
       </div>
 

@@ -383,6 +383,23 @@ export const twelveMonthPerformance = [
   { label: "Dec", value: 70 },
 ] as const;
 
+export const overallComplianceScore = {
+  title: "Overall Compliance Score",
+  value: 65,
+  subtitle: "Basic Standards 2025",
+  color: "#DB1F26",
+} as const;
+
+export const auditReadiness = {
+  title: "Audit Readiness",
+  value: 80,
+  subtitle: "Readiness Level",
+  meta: [
+    { label: "Overdue Sets", value: "12" },
+    { label: "Missing Evidence", value: "5" },
+  ],
+} as const;
+
 export const evidenceSummary = [
   { label: "Total Evidence", value: "4", icon: "/icons/doc.svg" },
   { label: "Under Review Evidence", value: "3", icon: "/icons/under_review.svg" },
