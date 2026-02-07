@@ -61,6 +61,7 @@ export default function BarChart({ title, values, labels }: Props) {
         grid: { display: false, drawBorder: false },
         ticks: {
           color: "#7D8FA0",
+          padding: 0,
           font: { size: 10, weight: "500" as const },
         },
       },
@@ -82,7 +83,7 @@ export default function BarChart({ title, values, labels }: Props) {
   } as const;
 
   return (
-    <div className="h-[322.09px] w-full rounded-[10px] border border-[#E0E8ED] bg-white p-4">
+    <div className="h-[322.09px] w-full rounded-[10px] border border-[#E0E8ED] bg-white px-4 pt-[24px] pb-0">
       <h3 className="text-[16px] font-bold leading-4 text-[#1D3557]">
         {title}
       </h3>
