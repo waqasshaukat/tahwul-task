@@ -12,7 +12,7 @@ export default function GaugeCard({ title, value, subtitle, meta }: Props) {
   const stroke = 16;
 
   return (
-    <div className="h-[322.09px] w-full rounded-[10px] border border-[#E0E8ED] bg-white p-4">
+    <div className="h-[322.09px] w-full rounded-[10px] border border-[#E0E8ED] bg-white pt-[24px] pr-4 pb-4 pl-[16px]">
       <h3 className="text-[16px] font-bold leading-4 text-[#1D3557]">
         {title}
       </h3>
