@@ -6,7 +6,7 @@ type Props = {
 
 export default function StatCard({ label, value, icon }: Props) {
   return (
-    <div className="flex h-[80px] w-full items-start justify-between rounded-[10px] border border-[#E0E8ED] bg-white px-4 py-3">
+    <div className="flex h-[80px] w-full cursor-pointer items-start justify-between rounded-[10px] border border-[#E0E8ED] bg-white px-4 py-3 transition hover:bg-[#F1F6FA]">
       <div className="pt-1">
         <p className="text-[24px] font-bold leading-4 text-[#1D3557]">
           {value}
