@@ -67,14 +67,14 @@ export default function PerspectivesOverviewPage() {
                   }`}
                 >
                   <div
-                    className={`w-[148.42px] rounded-[10px] px-3 py-3 text-left font-cairo text-[16px] font-normal leading-4 text-[#1D3557] ${
+                    className={`w-[148.42px] h-full rounded-[10px] px-3 py-3 text-left font-cairo text-[16px] font-normal leading-4 text-[#1D3557] ${
                       index === 0
                         ? "bg-[#1D3557]/5"
                         : "bg-[#1D3557]/5 hover:bg-[#1D3557]/10"
                     } ${index === 4 || index === 3 ? "flex items-center" : ""}`}
                     style={
                       index === 1
-                        ? { height: 181.69 }
+                        ? { height: "100%" }
                         : index === 2
                         ? { height: 71.95 }
                         : index === 3
@@ -98,7 +98,7 @@ export default function PerspectivesOverviewPage() {
                     }`}
                     style={
                       index === 1
-                        ? { minHeight: 181.69 }
+                        ? { minHeight: 0, paddingBottom: 24 }
                         : index === 2
                         ? { minHeight: 71.95 }
                         : index === 3
