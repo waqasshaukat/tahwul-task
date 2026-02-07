@@ -23,7 +23,7 @@ export default function CommentsPanel({ comments }: Props) {
         {comments.map((comment) => (
           <div
             key={comment.author}
-            className="h-[84px] w-full rounded-[10px] border border-[#E0E8ED] bg-white p-4"
+            className="h-[84px] w-full cursor-pointer rounded-[10px] border border-[#E0E8ED] bg-white p-4 transition hover:bg-[#F1F6FA]"
           >
             <div className="flex items-start justify-between">
               <div className="flex items-start gap-[10px]">

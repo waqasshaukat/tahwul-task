@@ -40,7 +40,7 @@ export default function BarChart({ title, values, labels }: Props) {
     ],
   };
 
-  const options = {
+  const options: import("chart.js").ChartOptions<"bar"> = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
@@ -58,11 +58,11 @@ export default function BarChart({ title, values, labels }: Props) {
     },
     scales: {
       x: {
-        grid: { display: false, drawBorder: false },
+        grid: { display: false },
         ticks: {
           color: "#7D8FA0",
           padding: 0,
-          font: { size: 10, weight: "500" as const },
+          font: { size: 10, weight: "bold" },
         },
       },
       y: {
@@ -71,12 +71,10 @@ export default function BarChart({ title, values, labels }: Props) {
         ticks: {
           stepSize: 20,
           color: "#8597A8",
-          font: { size: 10, weight: "500" as const },
+          font: { size: 10, weight: "bold" },
         },
         grid: {
           color: "rgba(230, 237, 245, 0.6)",
-          drawBorder: true,
-          borderColor: "#E6EDF5",
         },
       },
     },

@@ -2,7 +2,7 @@ type Props = {
   title: string;
   value: number;
   subtitle: string;
-  meta?: { label: string; value: string }[];
+  meta?: ReadonlyArray<{ label: string; value: string }>;
 };
 
 import SemiGauge from "./SemiGauge";
