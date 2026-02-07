@@ -37,6 +37,13 @@ export const notifications = [
   },
 ] as const;
 
+export const userMenuItems = [
+  { label: "Profile", detail: "View and edit your details" },
+  { label: "Settings", detail: "Account preferences" },
+  { label: "Team", detail: "Manage members" },
+  { label: "Sign out" },
+] as const;
+
 export const statCards = [
   { label: "Overall Progress", value: "78.65%", icon: "/icons/reports-red.svg" },
   { label: "Total Criteria", value: "95", icon: "/icons/criteria.svg" },

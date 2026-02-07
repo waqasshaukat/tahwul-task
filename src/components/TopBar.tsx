@@ -1,7 +1,8 @@
 import Link from "next/link";
 
 import NotificationMenu from "./NotificationMenu";
-import { notifications } from "../data/mock";
+import UserMenu from "./UserMenu";
+import { notifications, userMenuItems } from "../data/mock";
 
 export default function TopBar() {
   return (
@@ -29,15 +30,11 @@ export default function TopBar() {
         </div>
         <div className="flex items-center gap-3">
           <NotificationMenu items={notifications} />
-          <div className="flex h-8 w-[128px] items-center gap-1 rounded-full bg-[#F9FAFA] px-2 text-[12px] font-semibold text-ink-800">
-            <img
-              src="/icons/man.png"
-              alt="Mohamed"
-              className="h-6 w-6 rounded-full object-cover"
-            />
-            <span className="min-w-0 flex-1 truncate">Mohamed</span>
-            <img src="/icons/down.svg" alt="" className="h-3 w-3 flex-shrink-0" />
-          </div>
+          <UserMenu
+            name="Mohamed"
+            avatarSrc="/icons/man.png"
+            items={userMenuItems}
+          />
         </div>
       </div>
     </header>
