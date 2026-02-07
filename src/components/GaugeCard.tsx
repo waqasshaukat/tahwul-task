@@ -5,13 +5,11 @@ type Props = {
   meta?: { label: string; value: string }[];
 };
 
+import SemiGauge from "./SemiGauge";
+
 export default function GaugeCard({ title, value, subtitle, meta }: Props) {
   const size = 258.09;
   const stroke = 16;
-  const radius = (size - stroke) / 2;
-  const arcLength = Math.PI * radius;
-  const progress = (value / 100) * arcLength;
-  const offset = arcLength - progress;
 
   return (
     <div className="h-[322.09px] w-full rounded-[10px] border border-[#E0E8ED] bg-white p-4">
@@ -20,40 +18,14 @@ export default function GaugeCard({ title, value, subtitle, meta }: Props) {
       </h3>
       <div className="mt-2 flex flex-1 items-center justify-center">
         <div className="relative h-[170px] w-[258.09px] -translate-y-4">
-          <svg
+          <SemiGauge
+            value={value}
+            subtitle={subtitle}
+            color="#1EA54E"
+            size={size}
+            stroke={stroke}
             className="absolute bottom-0 left-0"
-            width={size}
-            height={size / 2 + stroke / 2}
-            viewBox={`0 0 ${size} ${size / 2 + stroke / 2}`}
-            fill="none"
-          >
-            <path
-              d={`M${stroke / 2} ${size / 2} A${radius} ${radius} 0 0 1 ${
-                size - stroke / 2
-              } ${size / 2}`}
-              stroke="#F5F8FB"
-              strokeWidth={stroke}
-              strokeLinecap="round"
-            />
-            <path
-              d={`M${stroke / 2} ${size / 2} A${radius} ${radius} 0 0 1 ${
-                size - stroke / 2
-              } ${size / 2}`}
-              stroke="#1EA54E"
-              strokeWidth={stroke}
-              strokeLinecap="round"
-              strokeDasharray={arcLength}
-              strokeDashoffset={offset}
-            />
-          </svg>
-          <div className="absolute bottom-2 left-1/2 w-full -translate-x-1/2 text-center">
-            <p className="font-cairo text-[44px] font-bold leading-[44px] text-[#1D3557]">
-              {value}%
-            </p>
-            <p className="mt-5 text-[14px] font-normal leading-4 text-[#8597A8]">
-              {subtitle}
-            </p>
-          </div>
+          />
         </div>
       </div>
       {meta && (
