@@ -38,7 +38,7 @@ const getBallColumns = (count: number) => {
 
 export default function ProgressMatrix({ columns }: Props) {
   return (
-    <div className="flex h-[529px] flex-col rounded-[10px] border border-[#E0E8ED] bg-white p-4">
+    <div className="flex min-h-[529px] flex-col rounded-[10px] border border-[#E0E8ED] bg-white p-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h3 className="text-[16px] font-bold leading-4 text-[#1D3557]">
           Progress Status
