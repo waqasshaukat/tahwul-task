@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 type Comment = {
   author: string;
   time: string;
@@ -9,6 +13,9 @@ type Props = {
 };
 
 export default function CommentsPanel({ comments }: Props) {
+  const [message, setMessage] = useState("");
+  const isDisabled = message.trim().length === 0;
+
   return (
     <div className="h-[433px] w-full rounded-[10px] border border-[#E0E8ED] bg-white p-[24px]">
       <h3 className="text-[16px] font-bold leading-4 text-[#1D3557]">Comments</h3>
@@ -40,8 +47,20 @@ export default function CommentsPanel({ comments }: Props) {
         ))}
       </div>
       <div className="mt-4">
-        <textarea className="block h-[111px] w-full rounded-[10px] border border-[#E0E8ED] bg-white p-3 text-[14px] leading-[20px] text-[#1D3557] outline-none focus:border-[#1D3557]" />
-        <button className="mt-4 inline-flex h-[34px] items-center gap-[9px] rounded-[8px] bg-[#1D3557] px-[24px] py-[14px] text-[16px] font-normal leading-[16px] text-white">
+        <textarea
+          value={message}
+          onChange={(event) => setMessage(event.target.value)}
+          className="block h-[111px] w-full rounded-[10px] border border-[#E0E8ED] bg-white p-3 text-[14px] leading-[20px] text-[#1D3557] outline-none focus:border-[#1D3557]"
+        />
+        <button
+          type="button"
+          disabled={isDisabled}
+          className={`mt-4 inline-flex h-[34px] items-center gap-[9px] rounded-[8px] px-[24px] py-[14px] text-[16px] font-normal leading-[16px] ${
+            isDisabled
+              ? "cursor-not-allowed bg-[#A7B4C0] text-white/80"
+              : "bg-[#1D3557] text-white"
+          }`}
+        >
           <img src="/icons/post.svg" alt="" className="h-4 w-4" />
           Post Comment
         </button>

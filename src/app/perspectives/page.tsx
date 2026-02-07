@@ -123,11 +123,11 @@ export default function PerspectivesOverviewPage() {
           <div className="mt-4">
             <EvidenceTable rows={evidenceRows} />
           </div>
-          <div className="flex w-full gap-[16px]">
-            <div className="flex-[2_2_0%]">
+          <div className="flex w-full flex-col gap-[16px] xl:flex-row">
+            <div className="flex-1 xl:flex-[2_2_0%]">
               <CommentsPanel comments={comments} />
             </div>
-            <div className="flex-[1_1_0%]">
+            <div className="flex-1 xl:flex-[1_1_0%]">
               <ActivityList title="Recent Activities" items={activities} />
             </div>
           </div>
